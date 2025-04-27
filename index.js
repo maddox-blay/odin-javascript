@@ -1,6 +1,7 @@
 
 let userScore = 0;
 let computerScore = 0;
+let roundCount = 0;
 
 const rockButton = document.getElementById("rock");
 const paperButton = document.getElementById("paper");
@@ -41,6 +42,23 @@ function getUserChoice(){
     return choice;
 }
 
+function endgame(){
+    if(userScore == 5 || computerScore == 5){
+        if(userScore == 5){
+            alert("you won, yayy");
+        }else{
+            alert("computer won, 🗿🗿🗿🗿");
+        }
+        userScore = 0;
+        computerScore = 0;
+        roundCount = 0;
+
+        Round.textContent = "Round : " + roundCount;
+        pScore.textContent = "score : " + userScore;
+        cScore.textContent = "score : " + computerScore;
+    }
+}
+
 function playGame(uChoice, cChoice){
     
     if(uChoice != cChoice){
@@ -48,22 +66,25 @@ function playGame(uChoice, cChoice){
             message.textContent = "you Win!!!!";
             message.style.backgroundColor = "green";
             userScore += 1;
-            pScore.textContent = "score : " + userScore;
-
         }else{
             message.textContent = "you Lose!!!!";
             message.style.backgroundColor = "red";
             computerScore += 1;
-            cScore.textContent = "score : " + computerScore;
-
         }
     }else{
         message.textContent = "you Drew!!!!";
         message.style.backgroundColor = "yellow";    }
     
     console.log("player: "+ userScore + ' ' +"computer: "+ computerScore)
+    roundCount += 1;
+    Round.textContent = "Round : " + roundCount;
+    pScore.textContent = "score : " + userScore;
+    cScore.textContent = "score : " + computerScore;
 
+    endgame();
 }
+
+
 rockButton.addEventListener("click", event =>{
     const choice = "rock";
     playerIcon.style.backgroundColor = "red";
