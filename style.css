@@ -23,7 +23,7 @@ body{
     align-items: center;
     padding: 15px;
 }
-.round{
+#round{
     font-size: 40px;
 }
 #message{

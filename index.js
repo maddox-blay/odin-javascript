@@ -8,6 +8,9 @@ const scissorButton = document.getElementById("scissors");
 const playerIcon = document.getElementById("playerIcon");
 const compIcon = document.getElementById("comp");
 const message = document.getElementById("message");
+const Round = document.getElementById("round");
+const pScore = document.getElementById("pScore");
+const cScore = document.getElementById("cScore");
 
 
 function computerChoice(){
@@ -45,10 +48,14 @@ function playGame(uChoice, cChoice){
             message.textContent = "you Win!!!!";
             message.style.backgroundColor = "green";
             userScore += 1;
+            pScore.textContent = "score : " + userScore;
+
         }else{
             message.textContent = "you Lose!!!!";
             message.style.backgroundColor = "red";
             computerScore += 1;
+            cScore.textContent = "score : " + computerScore;
+
         }
     }else{
         message.textContent = "you Drew!!!!";
